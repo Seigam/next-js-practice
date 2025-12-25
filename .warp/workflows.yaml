@@ -1,0 +1,50 @@
+---
+# Warp Workflows for Next.js Fullstack Project
+# These workflows provide quick access to common development tasks
+
+- name: dev
+  description: Start Next.js development server
+  command: npm run dev
+
+- name: build
+  description: Build the Next.js application for production
+  command: npm run build
+
+- name: start
+  description: Start the production server
+  command: npm run start
+
+- name: lint
+  description: Run ESLint to check code quality
+  command: npm run lint
+
+- name: lint:fix
+  description: Run ESLint and automatically fix issues
+  command: npm run lint -- --fix
+
+- name: type-check
+  description: Run TypeScript type checking
+  command: npx tsc --noEmit
+
+- name: clean
+  description: Clean build artifacts and reinstall dependencies
+  command: |
+    Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue
+    Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
+    npm install
+
+- name: dev:turbo
+  description: Start dev server with turbopack
+  command: npm run dev -- --turbo
+
+- name: analyze
+  description: Analyze bundle size
+  command: |
+    $env:ANALYZE = "true"
+    npm run build
+
+- name: test:build
+  description: Test that the project builds successfully
+  command: |
+    npm run build
+    if ($LASTEXITCODE -eq 0) { Write-Host "✓ Build successful" -ForegroundColor Green }

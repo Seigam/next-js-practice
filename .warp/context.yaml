@@ -1,0 +1,67 @@
+---
+# Warp Context Configuration
+# Helps Warp AI understand your project structure and conventions
+
+project:
+  name: next_fullstack
+  type: Next.js Full Stack Application
+  version: Next.js 16.0.3 with App Router
+  
+tech_stack:
+  framework: Next.js 16.0.3
+  runtime: React 19.2.0
+  language: TypeScript 5
+  styling: Tailwind CSS 4
+  icons: Lucide React
+  analytics: PostHog
+  
+structure:
+  app_directory: app/
+  components: components/
+  lib: lib/
+  public: public/
+  
+conventions:
+  # TypeScript path alias
+  import_alias: "@/*"
+  
+  # File naming
+  component_files: PascalCase (e.g., Button.tsx)
+  page_files: page.tsx
+  layout_files: layout.tsx
+  api_routes: app/api/*/route.ts
+  
+  # Styling
+  css: Tailwind CSS with CSS variables
+  component_variants: class-variance-authority (cva)
+  
+key_directories:
+  - path: app/
+    description: Next.js App Router pages, layouts, and API routes
+  
+  - path: components/
+    description: Reusable React components
+  
+  - path: lib/
+    description: Utility functions, helpers, and shared code
+  
+  - path: public/
+    description: Static assets served from root
+    
+commands:
+  dev: npm run dev
+  build: npm run build
+  lint: npm run lint
+  type_check: npx tsc --noEmit
+  
+testing:
+  framework: Not yet configured
+  notes: Consider adding Vitest or Jest for testing
+
+common_tasks:
+  - Creating new components in components/ directory
+  - Adding pages in app/ directory with page.tsx
+  - Creating API routes in app/api/*/route.ts
+  - Managing styles with Tailwind CSS
+  - Type checking with TypeScript
+  - Linting with ESLint
